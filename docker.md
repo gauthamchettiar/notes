@@ -94,5 +94,3 @@ Docker file consists of two parts:
 1. **FROM alpine** : OS on which any program needs to be installed is mentioned here. Alpine linux is used as the base image (OS) to install redis software on.
 2. **RUN apk add --update redis** : Any additional commands to run once the OS has been installed is mentioned here. We use "apk", a default package manager provided with Alpine, to install redis.
 3. **CMD ["redis-server"]** : Command to run on container startup is mentioned here. "redis-server" command starts up the redis server.
-
-## Docker Build Process:
