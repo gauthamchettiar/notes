@@ -1,5 +1,4 @@
-# RDB
-- RDB is the relational database provided by AWS
+# RDS - Relational Database Service
 - Relational DB supported by AWS:
 	1. SQL Server
 	2. Oracle
@@ -7,14 +6,14 @@
 	4. PostgreSQL
 	5. Aurora DB (Amazon's MySQL based DB)
 	6. MariaDB
-- Every RDB when created has an endpoint assigned, one can connect to the database using this endpoint, username and password (that is set by user during creation) 
+- Every RDS when created has an endpoint assigned, one can connect to the database using this endpoint, username and password (that is set by user during creation) 
 
 ## Database Usecases
 - OLTP: SQL Server, Oracle, MySQL Server, PostgreSQL, Aurora DB and MariaDB
 - OLAP (Data Warehousing / Business Intelligence Solution): Redshift
 - NoSQL: DynamoDB
 
-**RDS Exam Tips:**
+## RDS Exam Tips:
 1. RDS Runs on virtual machines
 	- One cannot log into these virtual machines.
 2. Thus one cannot apply security patches to underlying OS and Database.
@@ -37,18 +36,18 @@
 		- Once the original DB is deleted we are provided with an option to either delete the backups or keep them.
 	2. Database Snapshots
 		- They are user initiated backups.
-		- Similar to EC2 snapshots, RDB snapshots are not related to the parent database
+		- Similar to EC2 snapshots, RDS snapshots are not related to the parent database
 			- They persist even after the original DB is deleted.
 
-*Restoring backups:*
+**Restoring backups:**
 - Whenever a backup is restored using both the above backup methods, the new DB will be a new RDS instance with new DNS endpoint.
 
-*Encryption At Rest:*
+**Encryption At Rest:**
 - It is supported for all OLTP databases.
 - Once encrypted all the data stored in the underlying storage is encrypted, along with the automated backups, snapshots and read replicas (explained later)
 
 
-## RDB Multi-AZ Feature
+## RDS Multi-AZ Feature
 - Multi-AZ allows to have an exact copy of your database on another Availability Zone, called secondary/standby DB.
 - With having Multi-AZ enabled, a standby database is in place. 
 	- When the primary DB fails, the secondary DB comes to serves instead.
@@ -61,7 +60,7 @@
 	3. Availability Zone Failure
 - A failover can be forced by rebooting an RDS instance.
 
-## RDB Read Replica
+## RDS Read Replica
 - With read replica enabled, one can create multiple replicas of primary database (upto 5) and allow users to read the database from the created database instead.
 - Unlike Multi-AZ feature, all the read-replicas are active at the same time and serve under different endpoints.
 - Supported for *MySQL Server, PostgreSQL, Aurora DB and MariaDB*
@@ -91,7 +90,7 @@
 # Amazon Redshift
 - A datawarehousing (BI) tool that provides fast petabyte scale service.
 - Starts for as small as 0.25$ per hour upto $1000 per terabyte per year. (for ondemand basis)
-- RedShift can be configures as follows:
+- RedShift can be configured as follows:
 	1. Single Node (160GB)
 	2. Multi Node:
 		- Leader Node (Manages Client connections and recieved queries)

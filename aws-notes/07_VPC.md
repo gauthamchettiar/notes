@@ -1,4 +1,4 @@
-# VPC
+# VPC - Virtual Private Cloud
 - VPC is like a virtual data center
 - VPC enables you to provision an logically isolated section in AWS
 - One can set his own IP address range, creation of subnets and configure route tables and network gateways
@@ -11,6 +11,7 @@
 	3. Route tables can be configured between subnets
 	4. IGW can be attached to a VPC, giving it access to the internet.
 	5. Per instance can be restricted by Security Groups
+
 ## VPC Creation:
 1. Name
 2. CIDR Block (User Provided)*

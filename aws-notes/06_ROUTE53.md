@@ -1,4 +1,5 @@
-# DNS (Not Important for Exam)
+# Route 53
+## DNS (Not Important for Exam)
 - Converts human friendsly domain names (http://google.com) to machine IP address (http://82.123.43.1)
 - IPv4 is 32 bit long and thus addresses are running out
 	- IPv6 was created to solve this problem, which is 128 bit long
@@ -73,7 +74,7 @@ A domain without a first part (Sub Domain)
 
 **Domain names can be bought directly from AWS. Domain registration can take upto 3 days**
 
-# Route 53
+## What is Route 53?
 - AWS's Route53 provides 3 main functions:
 	1. Domain Registrations
 		- allows you to register domain names
@@ -88,7 +89,7 @@ A domain without a first part (Sub Domain)
 		- can be configured to route Internet traffic away from resources that are unavailable
 - Route 53 runs on Edge Locations
 
-**Exam Tips:**
+## Route 53 Exam Tips:
 1. ELB's do not have pre-defined IPv4 addresses, you resolve to them using DNS name.
 2. Given a choice to choose CName over A-Record in AWS exams, aways choose A-Record.
 
