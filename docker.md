@@ -1,7 +1,28 @@
 # DOCKER NOTES
 ## Index
-1. [Why Docker] (#why-docker?)
-2. [Namespacing in OS] (#namespacing-in-os)
+- [Why Docker?](#why-docker-)
+- [Namespacing in OS:](#namespacing-in-os-)
+- [Control Groups in OS:](#control-groups-in-os-)
+- [Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images](#docker-beginner-1-commands--creating-and-running-pre-built-docker-images)
+   1. docker run
+   2. docker ps
+   3. docker create
+   4. docker start
+- [Docker Hub and Image Cache.](#docker-hub-and-image-cache)
+- [Lifecycle of a container - Restarting a stopped container.](#lifecycle-of-a-container---restarting-a-stopped-container)
+- [Docker Beginner-1 Commands (Cont.1):](#docker-beginner-1-commands--cont1--)
+   5. docker system prune
+   6. docker log
+   7. docker stop
+   8. docker kill
+   9. docker exec
+   10. Open a Shell
+- [Purpose of '-i' and '-t'.](#purpose-of---i--and---t-)
+- [Containers are Isolated unless programmed to communicate.](#containers-are-isolated-unless-programmed-to-communicate)
+- [What is a Dockerfile?](#what-is-a-dockerfile-)
+- [What does Dockerfile Generally Include?](#what-does-dockerfile-generally-include-)
+- [Docker Begginer-2 Commands: Creating your own Docker Images](#docker-begginer-2-commands--creating-your-own-docker-images)
+- [Dockerfile Explained:](#dockerfile-explained-)
 
 ## Why Docker?
 Docker is generally used to completely deploy and run any application with ease. Where it takes several steps to install a particular program (like redis) on any machine, docker does this with one simple command. Docker helps to build, ship and run application complete with all the dependencies. 
@@ -54,7 +75,7 @@ On running `docker ps --all`, all the previous running container will be listed.
 9. **docker exec** _**(Execute a command within another container)**_  
 `docker run redis` Runs a redis-server within the container.	  
 `docker exec -it <container_id> <command>"` Executes the "command" within the container provided. "-it" flag is required to get the control back to current terminal.  
-`docker exec -it <running_redis_container_id> redis-cli` It'll run the command "redis-cli" inside "redis" container. (Info: redis-cli is the command to run redis queries directly on 'redis-server').  
+`docker exec -it <running_redis_container_id> redis-cli` It'll run the command "redis-cli" inside "redis" container. (Info: redis-cli is the command to run redis queries directly on 'redis-server').
 
 10. **Open a Shell** _**(access the terminal of the container)**_  
 `docker exec -it <running_container_id> sh` 'sh' is nothing but shell program (command processor), instead 'bash' or 'zsh' could also be used.   
