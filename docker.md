@@ -10,18 +10,18 @@
    4. docker start
 - [Docker Hub and Image Cache.](#docker-hub-and-image-cache)
 - [Lifecycle of a container - Restarting a stopped container.](#lifecycle-of-a-container---restarting-a-stopped-container)
-- [Docker Beginner-1 Commands (Cont.1):](#docker-beginner-1-commands--cont1--)
-   5. docker system prune
-   6. docker log
-   7. docker stop
-   8. docker kill
-   9. docker exec
-   10. Open a Shell
+- [Docker Beginner-2 Commands:](#docker-beginner-2-commands)
+   1. docker system prune
+   2. docker log
+   3. docker stop
+   4. docker kill
+   5. docker exec
+   6. Open a Shell
 - [Purpose of '-i' and '-t'.](#purpose-of---i--and---t-)
 - [Containers are Isolated unless programmed to communicate.](#containers-are-isolated-unless-programmed-to-communicate)
 - [What is a Dockerfile?](#what-is-a-dockerfile-)
 - [What does Dockerfile Generally Include?](#what-does-dockerfile-generally-include-)
-- [Docker Begginer-2 Commands: Creating your own Docker Images](#docker-begginer-2-commands--creating-your-own-docker-images)
+- [Docker Intermedite-1 Commands: Creating your own Docker Images](#docker-intermediate-1-commands--creating-your-own-docker-images)
 - [Dockerfile Explained:](#dockerfile-explained-)
 
 ## Why Docker?
@@ -59,25 +59,25 @@ When any image is 'run', it is searched for in the local "Image Cache". If not f
 ## Lifecycle of a container - Restarting a stopped container.  
 On running `docker ps --all`, all the previous running container will be listed. The listed containers will be mostly in EXITED (0) state. To **restart** the EXITED container you just need to run `docker start -a 'container_id_of_the_exited_container'`. This will restart the container with the command that was previously issued. The command passed during container creation cannot be modified during restarting of that container.
 
-## Docker Beginner-1 Commands (Cont.1):  
-5. **docker system prune** _**(Completely removes all stopped containers, all networks not used by at least one container, all dangling images and all build image cache)**_  
+## Docker Beginner-2 Commands:  
+1. **docker system prune** _**(Completely removes all stopped containers, all networks not used by at least one container, all dangling images and all build image cache)**_  
 `docker system prune` - Since this deletes downloaded image cache aswell the next time you try to run or create a container it'll pull the image from docker hub.  
 
-6. **docker logs** _**(Prints the logs/output generated of the running (up) or exited container)**_  
+2. **docker logs** _**(Prints the logs/output generated of the running (up) or exited container)**_  
 `docker logs <container_id>`  
 
-7. **docker stop** _**(Issues a h/w signal 'SIGTERM' to process, similar to "ctrl+c". process will have some time to stop on it's own.)**_  
+3. **docker stop** _**(Issues a h/w signal 'SIGTERM' to process, similar to "ctrl+c". process will have some time to stop on it's own.)**_  
 `docker stop <container_id>` - If a process doesn't respond to 'SIGTERM' command it'll be killed automatically in 10 seconds.  
 
-8. **docker kill** _**(Issues a h/w signal 'SIGKILL' to process which instantly kills the process)**_  
+4. **docker kill** _**(Issues a h/w signal 'SIGKILL' to process which instantly kills the process)**_  
 `docker kill <container_id>` - It is safer to use stop instead of kill  
 
-9. **docker exec** _**(Execute a command within another container)**_  
+5. **docker exec** _**(Execute a command within another container)**_  
 `docker run redis` Runs a redis-server within the container.	  
 `docker exec -it <container_id> <command>"` Executes the "command" within the container provided. "-it" flag is required to get the control back to current terminal.  
 `docker exec -it <running_redis_container_id> redis-cli` It'll run the command "redis-cli" inside "redis" container. (Info: redis-cli is the command to run redis queries directly on 'redis-server').
 
-10. **Open a Shell** _**(access the terminal of the container)**_  
+6. **Open a Shell** _**(access the terminal of the container)**_  
 `docker exec -it <running_container_id> sh` 'sh' is nothing but shell program (command processor), instead 'bash' or 'zsh' could also be used.   
 `docker run -it <image_name> sh` Very similar to exec, except this container won't execute the default command it was programmed with (e.g: redis server won't start with this command but you'll be directly redirected to shell).  
 
@@ -97,7 +97,7 @@ It contains all the configurations to build an image that defines a container be
 2. **Commands to Install Additional Programs** : Any additional commands to run once the OS has been installed is mentioned here.  
 3. **Command to Run on Container Startup** : Command to run on container startup is mentioned here.  
 
-## Docker Begginer-2 Commands: Creating your own Docker Images  
+## Docker Intermediate-1 Commands: Creating your own Docker Images  
 1. **docker build**  
    * Create a folder with a relevant name (e.g: redis-server).
    * Inside the folder create a file named "Dockerfile", without any extension.
