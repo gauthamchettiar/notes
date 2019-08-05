@@ -1,9 +1,9 @@
 # DOCKER NOTES
 ## Index
-- [Why Docker?](#why-docker-)
-- [Namespacing in OS:](#namespacing-in-os-)
-- [Control Groups in OS:](#control-groups-in-os-)
-- [Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images](#docker-beginner-1-commands--creating-and-running-pre-built-docker-images)
+- [Why Docker?](#why-docker)
+- [Namespacing in OS:](#namespacing-in-os)
+- [Control Groups in OS:](#control-groups-in-os)
+- [Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images](#docker-beginner-1-commands-creating-and-running-pre-built-docker-images)
    1. docker run
    2. docker ps
    3. docker create
@@ -17,12 +17,12 @@
    4. docker kill
    5. docker exec
    6. Open a Shell
-- [Purpose of '-i' and '-t'.](#purpose-of---i--and---t-)
+- [Purpose of '-i' and '-t'.](#purpose-of--i-and--t)
 - [Containers are Isolated unless programmed to communicate.](#containers-are-isolated-unless-programmed-to-communicate)
-- [What is a Dockerfile?](#what-is-a-dockerfile-)
-- [What does Dockerfile Generally Include?](#what-does-dockerfile-generally-include-)
-- [Docker Intermedite-1 Commands: Creating your own Docker Images](#docker-intermediate-1-commands--creating-your-own-docker-images)
-- [Dockerfile Explained:](#dockerfile-explained-)
+- [What is a Dockerfile?](#what-is-a-dockerfile)
+- [What does Dockerfile Generally Include?](#what-does-dockerfile-generally-include)
+- [Docker Intermedite-1 Commands: Creating your own Docker Images](#docker-intermediate-1-commands-creating-your-own-docker-images)
+- [Dockerfile Explained:](#dockerfile-explained)
 
 ## Why Docker?
 Docker is generally used to completely deploy and run any application with ease. Where it takes several steps to install a particular program (like redis) on any machine, docker does this with one simple command. Docker helps to build, ship and run application complete with all the dependencies. 
