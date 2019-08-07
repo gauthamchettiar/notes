@@ -6,7 +6,7 @@
 - [Namespacing in OS:](#namespacing-in-os)
 - [Control Groups in OS:](#control-groups-in-os)
 - [Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images](#docker-beginner-1-commands-creating-and-running-pre-built-docker-images)
-   1. docker run
+   1. [docker run](#docker-run)
    2. docker ps
    3. docker create
    4. docker start
@@ -68,7 +68,7 @@ Similar to namespacing, but it is used to *limit* Memory, CPU Usage, Hardisk I/O
 - new: docker <command> <sub-command> (options)
 
 ## Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images
-1. **docker run <image_name>** _**(Creating and Running a Container)**_  
+1. **docker run <image_name>** _**(Creating and Running a Container)**_  <a name='docker-run'/>
 `docker run hello-world` - 'hello-world' is a test image that echoes a message and exits.
 `docker run busybox echo hello world` - Command echos the hello world message and immediately exits.  
 `docker run hello-world echo hello world` - This command FAILS because hello-world container does not have echo command installed, infact it does not have anything installed it just prints a message.  
