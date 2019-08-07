@@ -1,6 +1,8 @@
 # DOCKER NOTES
 ## Index
 - [Why Docker?](#why-docker)
+- [What is virtualization?](#what-is-virtualization)
+- [What is Containerization?](#what-is-containerization)
 - [Namespacing in OS:](#namespacing-in-os)
 - [Control Groups in OS:](#control-groups-in-os)
 - [Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images](#docker-beginner-1-commands-creating-and-running-pre-built-docker-images)
@@ -26,6 +28,32 @@
 
 ## Why Docker?
 Docker is generally used to completely deploy and run any application with ease. Where it takes several steps to install a particular program (like redis) on any machine, docker does this with one simple command. Docker helps to build, ship and run application complete with all the dependencies. 
+
+## What is Virtualization?
+Virtualization is the technique of importing a Guest operating system on top of a Host operating system. It allows developers to run multiple OS in different Virtual Machines on the same host (PC).
+
+![virtualization](resources/Virtual-Machine-Architecture-Edureka.png)
+*Source: [https://www.edureka.co/blog/docker-tutorial](https://www.edureka.co/blog/docker-tutorial)*
+
+Guest OS runs on a virtual layer called *hypervisor*, that enables Host OS to support multiple OS.
+
+### Disadvantages of virtualization:
+1. Performance degradation: Virtual host having it's own set of libraries and dependencies takes up a lot of resources.
+2. Booting up a VM takes time: Having a VM is like installing an OS, it takes time to setup.
+3. Hypervisors are slow.
+
+## What is Containerization?
+Containerization is similar to virtualization minus the drawbacks. Containerization brings abstraction to the OS level, instead of hardware level (like virtualization). Containers run on the host OS itself instead of having it's own guest OS. 
+Docker is based on containerization.
+
+![containerization](resources\Container-Architecture-Edureka.png)
+*Source: [https://www.edureka.co/blog/docker-tutorial](https://www.edureka.co/blog/docker-tutorial)*
+
+Containers run on a virtual layer called *Container Engine*, that enables host OS to support running containers.
+
+### Advantages of containerization:
+1. Containers are light weight: It uses the relevant resources and libraries from the host OS, thus they are lighter than the complete OS that virtualization uses.
+2. Booting up a container takes a few seconds
 
 ## Namespacing in OS: 
 Consider an hypothetical situation where, two programs *Chrome* and *NodeJS* on same Operating System requires *python2* and *python3* respectively. And suppose only *python2* is installed, *Chrome* would run without any issues but *NodeJS* would fail. Namespacing solves this issue by segmenting the resources into segments each with respective softwares installed or certain resource access.
@@ -114,8 +142,7 @@ It contains all the configurations to build an image that defines a container be
 	`docker run 'image_id'`
 
 ## Dockerfile Explained:
-Docker file consists of two parts:  
-**COMMAND arguments**  
+Docker file consists of two parts: **COMMAND arguments**  
 1. **FROM alpine** : OS on which any program needs to be installed is mentioned here. Alpine linux is used as the base image (OS) to install redis software on.
 2. **RUN apk add --update redis** : Any additional commands to run once the OS has been installed is mentioned here. We use "apk", a default package manager provided with Alpine, to install redis.
 3. **CMD ["redis-server"]** : Command to run on container startup is mentioned here. "redis-server" command starts up the redis server.

@@ -90,7 +90,7 @@
 - As it is a network file storge, EFS can be mounted on multiple EC2 instances.
 [Mounting EFS on any EC2 instance](https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html)
 
-## Placement Groups
+# Placement Groups
 - When you launch a new EC2 instance, the EC2 service attempts to place the instance in such a way that all of your instances are spread out across underlying hardware to minimize correlated failures. 
 	- You can use placement groups to influence the placement of a group of interdependent instances to meet the needs of your workload. 
 - Depending on the type of workload, you can create a placement group using one of the following placement strategies:
