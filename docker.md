@@ -32,7 +32,7 @@ Docker is generally used to completely deploy and run any application with ease.
 ## What is Virtualization?
 Virtualization is the technique of importing a Guest operating system on top of a Host operating system. It allows developers to run multiple OS in different Virtual Machines on the same host (PC).
 
-![virtualization](resources/Virtual-Machine-Architecture-Edureka.png)
+![virtualization](resources/Virtual-Machine-Architecture-Edureka.png)\
 *Source: [https://www.edureka.co/blog/docker-tutorial](https://www.edureka.co/blog/docker-tutorial)*
 
 Guest OS runs on a virtual layer called *hypervisor*, that enables Host OS to support multiple OS.
@@ -46,7 +46,7 @@ Guest OS runs on a virtual layer called *hypervisor*, that enables Host OS to su
 Containerization is similar to virtualization minus the drawbacks. Containerization brings abstraction to the OS level, instead of hardware level (like virtualization). Containers run on the host OS itself instead of having it's own guest OS. 
 Docker is based on containerization.
 
-![containerization](resources\Container-Architecture-Edureka.png)
+![containerization](resources/Container-Architecture-Edureka.png)\
 *Source: [https://www.edureka.co/blog/docker-tutorial](https://www.edureka.co/blog/docker-tutorial)*
 
 Containers run on a virtual layer called *Container Engine*, that enables host OS to support running containers.
@@ -61,11 +61,17 @@ Consider an hypothetical situation where, two programs *Chrome* and *NodeJS* on 
 ## Control Groups in OS:
 Similar to namespacing, but it is used to *limit* Memory, CPU Usage, Hardisk I/O and N/W Bandwith. So a particular process could be allocated a specific amount of resource beyond which it cannot use.  
 
+## Docker Container vs Images
+
+## Docker command structure
+- old (still works): docker <command> (options)
+- new: docker <command> <sub-command> (options)
+
 ## Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images
 1. **docker run <image_name>** _**(Creating and Running a Container)**_  
-`docker run hello-world`  
-`docker run busybox echo hello world` - Command echos the hello world and immediately exits.  
-`docker run hello-world echo hello world` - This command FAILS because hello world container does not have echo command installed, infact it does not have anything installed it just prints a message.  
+`docker run hello-world` - 'hello-world' is a test image that echoes a message and exits.
+`docker run busybox echo hello world` - Command echos the hello world message and immediately exits.  
+`docker run hello-world echo hello world` - This command FAILS because hello-world container does not have echo command installed, infact it does not have anything installed it just prints a message.  
 
 2. **docker ps** _**(List Containers)**_  
 `docker ps` - Initially it wont show up anything since there is no container running in the background  
@@ -115,7 +121,7 @@ Every process has 3 ways to communicate with underlying architecture - STDIN, ST
    * \-t = emulates the terminal so that rsults would be formatted and displayed as it will be displayed in the original cli  
 
 ## Containers are Isolated unless programmed to communicate.  
-`docker run -it busybox sh` Running this command on two different terminals create two running containers of "busybox" which is mutually exclusive, resources is by default not shared between two.  
+`docker run -it busybox sh` Running this command on two different terminals create two running containers of "busybox" which is mutually exclusive, resources is by default not shared between two. 
 
 ## What is a Dockerfile?  
 It contains all the configurations to build an image that defines a container behaviour. *Dockerfile* -> Docker Client -> Docker Server -> *Docker Image*. We pass the "Dockerfile" to "Docker Client", "Docker Client" submits the "Dockerfile" to "Docker Server". "Docker Server" reads the Dockerfile and creates the "Docker Image".
