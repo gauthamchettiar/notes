@@ -75,14 +75,14 @@ Similar to namespacing, but it is used to *limit* Memory, CPU Usage, Hardisk I/O
 `docker run busybox echo hello world` - Command echos the hello world message and immediately exits.  
 `docker run hello-world echo hello world` - This command FAILS because hello-world container does not have echo command installed, infact it does not have anything installed it just prints a message.  
 
-2. <a name='docker-ps'/> **docker ps** _**(List Containers)**_\
+2. **docker ps** _**(List Containers)**_\
 `docker ps` - Initially it wont show up anything since there is no container running in the background  
 `docker run busybox ping google.com` - This will keep pinging google.com thus keep the terminal alive, now running 'docker ps' should return a running container  
 `docker ps --all` - Lists all the containers that was ever run  
 
 **DOCKER RUN = DOCKER CREATE + DOCKER START**  
 
-3. <a name='docker-create'/> **docker create <image_name>** _**(Creates a ready to run container and returns the created container's ID)**_\
+3. **docker create <image_name>** _**(Creates a ready to run container and returns the created container's ID)**_\
 `docker create hello-world` - It will return the created container's ID  
 
 4. **docker start <created_container_id>** _**(Starts the provided container_id)**_\
@@ -96,24 +96,24 @@ When any image is 'run', it is searched for in the local "Image Cache". If not f
 On running `docker ps --all`, all the previous running container will be listed. The listed containers will be mostly in EXITED (0) state. To **restart** the EXITED container you just need to run `docker start -a 'container_id_of_the_exited_container'`. This will restart the container with the command that was previously issued. The command passed during container creation cannot be modified during restarting of that container.
 
 ## Docker Beginner-2 Commands:
-1. **docker system prune** _**(Completely removes all stopped containers, all networks not used by at least one container, all dangling images and all build image cache)**_
+1. **docker system prune** _**(Completely removes all stopped containers, all networks not used by at least one container, all dangling images and all build image cache)**_\
 `docker system prune` - Since this deletes downloaded image cache aswell the next time you try to run or create a container it'll pull the image from docker hub.  
 
-2. **docker logs** _**(Prints the logs/output generated of the running (up) or exited container)**_ 
+2. **docker logs** _**(Prints the logs/output generated of the running (up) or exited container)**_\
 `docker logs <container_id>`  
 
-3. **docker stop** _**(Issues a h/w signal 'SIGTERM' to process, similar to "ctrl+c". process will have some time to stop on it's own.)**_ 
+3. **docker stop** _**(Issues a h/w signal 'SIGTERM' to process, similar to "ctrl+c". process will have some time to stop on it's own.)**_\
 `docker stop <container_id>` - If a process doesn't respond to 'SIGTERM' command it'll be killed automatically in 10 seconds.  
 
-4. **docker kill** _**(Issues a h/w signal 'SIGKILL' to process which instantly kills the process)**_ 
+4. **docker kill** _**(Issues a h/w signal 'SIGKILL' to process which instantly kills the process)**_\
 `docker kill <container_id>` - It is safer to use stop instead of kill  
 
-5. **docker exec** _**(Execute a command within another container)**_ 
+5. **docker exec** _**(Execute a command within another container)**_\
 `docker run redis` Runs a redis-server within the container.	  
 `docker exec -it <container_id> <command>"` Executes the "command" within the container provided. "-it" flag is required to get the control back to current terminal.  
 `docker exec -it <running_redis_container_id> redis-cli` It'll run the command "redis-cli" inside "redis" container. (Info: redis-cli is the command to run redis queries directly on 'redis-server').
 
-6. **Open a Shell** _**(access the terminal of the container)**_ 
+6. **Open a Shell** _**(access the terminal of the container)**_\
 `docker exec -it <running_container_id> sh` 'sh' is nothing but shell program (command processor), instead 'bash' or 'zsh' could also be used.   
 `docker run -it <image_name> sh` Very similar to exec, except this container won't execute the default command it was programmed with (e.g: redis server won't start with this command but you'll be directly redirected to shell).  
 
