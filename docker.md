@@ -70,22 +70,25 @@ Similar to namespacing, but it is used to *limit* Memory, CPU Usage, Hardisk I/O
 - new: docker <command> <sub-command> (options)
 
 ## Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images
-<a name='docker-run'/> 1. **docker run <image_name>** _**(Creating and Running a Container)**_\
+<a name='docker-run'/> 
+1. **docker run <image_name>** _**(Creating and Running a Container)**_\
 `docker run hello-world` - 'hello-world' is a test image that echoes a message and exits.
 `docker run busybox echo hello world` - Command echos the hello world message and immediately exits.  
 `docker run hello-world echo hello world` - This command FAILS because hello-world container does not have echo command installed, infact it does not have anything installed it just prints a message.  
-
-<a name='docker-ps'/> 2. <a name='docker-ps'/> **docker ps** _**(List Containers)**_\
+<a name='docker-ps'/> 
+2. <a name='docker-ps'/> **docker ps** _**(List Containers)**_\
 `docker ps` - Initially it wont show up anything since there is no container running in the background  
 `docker run busybox ping google.com` - This will keep pinging google.com thus keep the terminal alive, now running 'docker ps' should return a running container  
 `docker ps --all` - Lists all the containers that was ever run  
 
 **DOCKER RUN = DOCKER CREATE + DOCKER START**  
 
-<a name='docker-create'/> 3. <a name='docker-create'/> **docker create <image_name>** _**(Creates a ready to run container and returns the created container's ID)**_\
+<a name='docker-create'/>
+3. <a name='docker-create'/> **docker create <image_name>** _**(Creates a ready to run container and returns the created container's ID)**_\
 `docker create hello-world` - It will return the created container's ID  
 
-<a name='docker-start'/> 4. **docker start <created_container_id>** _**(Starts the provided container_id)**_\
+<a name='docker-start'/> 
+4. **docker start <created_container_id>** _**(Starts the provided container_id)**_\
 `docker start -a <container_id>` - \-a symbolize to "attach" the container to current terminal thus the o/p is displayed  
 `docker start <container_id>` - Starts the container but doesn't attach the o/p to current terminal  
 
