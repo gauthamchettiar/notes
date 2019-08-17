@@ -63,9 +63,7 @@ Similar to namespacing, but it is used to *limit* Memory, CPU Usage, Hardisk I/O
 
 ## Docker Container vs Images
 
-## Docker command structure
-- old (still works): docker <command> (options)
-- new: docker <command> <sub-command> (options)
+![docker-and-image](resources/docker/docker-image-and-container.svg)  
 
 ## Docker Beginner-1 Commands: Creating and Running Pre-Built Docker Images
 1. **docker run <image_name>** _**(Creating and Running a Container)**_\
@@ -88,7 +86,13 @@ Similar to namespacing, but it is used to *limit* Memory, CPU Usage, Hardisk I/O
 `docker start <container_id>` - Starts the container but doesn't attach the o/p to current terminal  
 
 ## Docker Hub and Image Cache.  
-When any image is 'run', it is searched for in the local "Image Cache". If not found it'll be downloaded (pulled) from the "Docker Hub" to local "Image Cache". The next time same image is referenced, it'll skip the downloading and directly 'run' the downloaded image from "Image Cache".  
+When any image is 'run', it is searched for in the local "Image Cache". If not found it'll be downloaded (pulled) from the "Docker Hub" to local "Image Cache".  
+
+![docker-fetch-image-first-time](resources/docker/docker-fetching-image-1.svg)  
+
+The next time same image is referenced, it'll skip the downloading and directly 'run' the downloaded image from "Image Cache". 
+
+![docker-fetch-image-next-time](resources/docker/docker-fetching-image-2.svg)  
 
 ## Lifecycle of a container - Restarting a stopped container.  
 On running `docker ps --all`, all the previous running container will be listed. The listed containers will be mostly in EXITED (0) state. To **restart** the EXITED container you just need to run `docker start -a 'container_id_of_the_exited_container'`. This will restart the container with the command that was previously issued. The command passed during container creation cannot be modified during restarting of that container.
