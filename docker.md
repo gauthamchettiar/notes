@@ -34,8 +34,7 @@ Docker is generally used to completely deploy and run any application with ease.
 ## What is Virtualization?
 Virtualization is the technique of importing a Guest operating system on top of a Host operating system. It allows developers to run multiple OS in different Virtual Machines on the same host (PC).
 
-![virtualization](resources/Virtual-Machine-Architecture-Edureka.png)\
-*Source: [https://www.edureka.co/blog/docker-tutorial](https://www.edureka.co/blog/docker-tutorial)*
+![virtualization](resources/docker/docker-virtualization.svg)  
 
 Guest OS runs on a virtual layer called *hypervisor*, that enables Host OS to support multiple OS.
 
@@ -48,8 +47,7 @@ Guest OS runs on a virtual layer called *hypervisor*, that enables Host OS to su
 Containerization is similar to virtualization minus the drawbacks. Containerization brings abstraction to the OS level, instead of hardware level (like virtualization). Containers run on the host OS itself instead of having it's own guest OS. 
 Docker is based on containerization.
 
-![containerization](resources/Container-Architecture-Edureka.png)\
-*Source: [https://www.edureka.co/blog/docker-tutorial](https://www.edureka.co/blog/docker-tutorial)*
+![containerization](resources/docker/docker-containerization.svg)  
 
 Containers run on a virtual layer called *Container Engine*, that enables host OS to support running containers.
 
