@@ -1,26 +1,32 @@
 # Loadbalancers
 
-## What is a Load Balancer?
+## What is a Load Balancer ?
+A loadbalancer as name suggests routes traffic(load) to different ec2 machines.
 
 ## Types of Load Balancers
+
 1. Application Load Balancer
 2. Network Load Balancer
 3. Classic Load Balancer
 
 ## Application Load Balancer
+
 - Best suited for HTTP and HTTPS type traffic
 - Operating at application layer, it enables user to create advances request routing
 - It allows user to send certain web request (based on url) to certain servers
 
 ## Network Load Balancer
+
 - Best suited for situations where extreme performance is required
 - Operating at network level, it is able to handle millions of requests with very low latency
 
 ## Classic Load Balancer
+
 - It is a legacy Load Balancer that amazon does not recommend
 - It is best of both the worlds (app and n/w), as one can use simple layer-7 specific features like x-forwarded and sticky sessions also choose to purely reply on n/w based routing
 
 ## ELB Points to Remember
+
 - **Health checks** : An ELB periodically checks all registered instances for it's health
 	- This health check can be personalised by setting up a custom health checkup
 	- Based on health, instances are either in *InService* or *OutOfService*
@@ -38,6 +44,3 @@
 - **Path Patterns** : In ALB, you can forward requests based on URL path.
 	- This is useful when there are multiple backend services fulfiling different purposes
 	- e.g: general requests to one target group (www.myurl.com) and request to render images to another target group (www.myurl.com/images)
-
-
-

@@ -1,4 +1,5 @@
 # RDS - Relational Database Service
+
 - Relational DB supported by AWS:
 	1. SQL Server
 	2. Oracle
@@ -9,11 +10,13 @@
 - Every RDS when created has an endpoint assigned, one can connect to the database using this endpoint, username and password (that is set by user during creation) 
 
 ## Database Usecases
+
 - OLTP: SQL Server, Oracle, MySQL Server, PostgreSQL, Aurora DB and MariaDB
 - OLAP (Data Warehousing / Business Intelligence Solution): Redshift
 - NoSQL: DynamoDB
 
-## RDS Exam Tips:
+## RDS Exam Tips
+
 1. RDS Runs on virtual machines
 	- One cannot log into these virtual machines.
 2. Thus one cannot apply security patches to underlying OS and Database.
@@ -23,6 +26,7 @@
 4. Any MySQL Database can be migrated to Aurora DB.
 
 ## RDS Backups
+
 - Backups in RDS can be performed in two ways:
 	1. Automated Backups
 		- As name suggests when automated backups are enabled a daily backup of database is taken.
@@ -39,15 +43,18 @@
 		- Similar to EC2 snapshots, RDS snapshots are not related to the parent database
 			- They persist even after the original DB is deleted.
 
-**Restoring backups:**
+### Restoring backups
+
 - Whenever a backup is restored using both the above backup methods, the new DB will be a new RDS instance with new DNS endpoint.
 
-**Encryption At Rest:**
+### Encryption At Rest
+
 - It is supported for all OLTP databases.
 - Once encrypted all the data stored in the underlying storage is encrypted, along with the automated backups, snapshots and read replicas (explained later)
 
 
 ## RDS Multi-AZ Feature
+
 - Multi-AZ allows to have an exact copy of your database on another Availability Zone, called secondary/standby DB.
 - With having Multi-AZ enabled, a standby database is in place. 
 	- When the primary DB fails, the secondary DB comes to serves instead.
@@ -61,6 +68,7 @@
 - A failover can be forced by rebooting an RDS instance.
 
 ## RDS Read Replica
+
 - With read replica enabled, one can create multiple replicas of primary database (upto 5) and allow users to read the database from the created database instead.
 - Unlike Multi-AZ feature, all the read-replicas are active at the same time and serve under different endpoints.
 - Supported for *MySQL Server, PostgreSQL, Aurora DB and MariaDB*
@@ -72,9 +80,10 @@
 - Read replica can be created in a seperate region.
 
 # Amazon DynamoDB
+
 - Amazon's NoSQL solution that provides very fast read/writes, a single digit millisecond latency at any scale.
 - Database is completely managed by AWS and supports both, 
-	1. Document and 
+	1. Document &
 	2. Key-Value Data models
 - DynamoDB is stored on SSD Storage.
 - DynamoDB is pread accross 3 AZs (Thus service is not supported in regions with less than 3 AZs)
@@ -88,6 +97,7 @@
 		- Read performance is a bit slowed down, but in return you get immediate consistency.
 
 # Amazon Redshift
+
 - A datawarehousing (BI) tool that provides fast petabyte scale service.
 - Starts for as small as 0.25$ per hour upto $1000 per terabyte per year. (for ondemand basis)
 - RedShift can be configured as follows:
@@ -122,6 +132,7 @@
 	- Can restore snapshots/backups to new AZs in event of outage
 
 # Amazon Aurora
+
 - Aurora is a MySQL compatible, relational DB engine
 - It is said to provide 5 times better performance than MySQL at 1/10 of the commercial DB price.
 - Start with 10GB, increments at 10GB upto 64TB
@@ -142,6 +153,7 @@
 		- *Aurora snapshots can be shared with other accounts*
 	
 # Elasticache
+
 - On Cloud, in memory, cache store, that is easy to deploy, operate and scale.
 - It improves performance by allowing to cache most frequently used data and retrieve them quickly
 	- e.g: Cache top 10 search results of amazon

@@ -1,10 +1,12 @@
 # EBS - Elastic Block Storage
 
 ## What is EBS?
+
 - Persistent block storage (not object storage) volumes that can be used with EC2
 - Each EBS volume is replicated within its AZ for protection against component failure
 
 ## Types of EBS Storage
+
 1. General Purpose (SSD):
 	- Used for most workloads
 	- API NAME: gp2
@@ -22,6 +24,7 @@
 	- API NAME: Standard
 
 # Snapshots
+
 - Snapshots are point in time backups of any volume.
 - Snapshots exist on S3.
 - Snapshots are incremental, only changed blocks since last snapshot are saved.
@@ -30,6 +33,7 @@
 	- However, it is possible to create snapshots of a running instance.
 
 # AMI - Amazon Machine Image
+
 - An Amazon Machine Image (AMI) provides the information required to launch an EC2 instance. 
 - It contains information such as:
 	- One or more EBS Snapshots of the root volume of the instance.
@@ -47,6 +51,7 @@
 	4. Share with Others (One can also buy or sell AMIs on Amazon Marketplace)
 
 ## AMI/EC2 Instance Volume Backing
+
 1. EBS Volume: 
 	- Instance type of root volume is Amazon's EBS Volume, which is created from EBS Snapshot.
 	- EC2 instances backed by EBS can be stopped, any data stored will be restored when restarted.
@@ -57,6 +62,7 @@
 	- *You can reboot EC2 instances backed by both.*
 
 ## EC2, EBS, Snapshot & AMI Exam Tips:
+
 1. EBS volume sizes can be changed on the fly, changes include changing the storage size and storage type.
 2. Volumes created for any EC2 instance will be on the same Region as the corresponding EC2 instance.
 3. MOVING AN EC2 INSTANCE FROM ONE AZ TO ANOTHER:
@@ -78,6 +84,7 @@
 		4. Launch an EC2 instance from that encrypted AMI.
 
 # EFS - Elastic File System
+
 - EFS is a file storage service similar to EBS
 - But EFS is Elastic, meaning storage capacity grows and shrinks as per usage.
 - Features:
@@ -91,6 +98,7 @@
 [Mounting EFS on any EC2 instance](https://docs.aws.amazon.com/efs/latest/ug/wt1-test.html)
 
 # Placement Groups
+
 - When you launch a new EC2 instance, the EC2 service attempts to place the instance in such a way that all of your instances are spread out across underlying hardware to minimize correlated failures. 
 	- You can use placement groups to influence the placement of a group of interdependent instances to meet the needs of your workload. 
 - Depending on the type of workload, you can create a placement group using one of the following placement strategies:
@@ -104,6 +112,7 @@
 - There is no charge for creating a placement group.
 
 ## Placement Group Exam Tips:
+
 1. Cluster Placement Group cannot span multiple AZs.
 	- While, Spread Placement Group can spread accross multiple AZ.
 2. Name of placement group must be unique within an AWS account.
