@@ -4,7 +4,9 @@
 
 1. Public : A cloud managed by an organization and open to use by the general public.
 2. Private : A cloud that virtualizes and distributes the IT infrastructure for a sin-gle organization.
-3. Hybrid : A mixture of a public and a private cloud.AWS is a public cloud.
+3. Hybrid : A mixture of a public and a private cloud.
+
+AWS is a public cloud.
 
 ## Cloud Classifications
 
